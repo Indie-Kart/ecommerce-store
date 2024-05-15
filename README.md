@@ -77,7 +77,7 @@ When reporting a new issue, please provide the following details:
 ## Making Pull Requests
 
 If you're submitting a pull request, please:
-
+- Strictly follow the [PULL_REQUEST_TEMPLATE](./PULL_REQUEST_TEMPLATE.md)
 - Describe the changes made and the reason for the changes.
 - Reference any related issues by using keywords such as "Fixes #<issue_number>" in your pull request description.
 
