@@ -12,7 +12,6 @@ jobs:
         id: check_command
         uses: actions/github-script@v4
         with:
-          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           script: |
             const commentBody = context.payload.comment.body;
             const assignCommand = '/assign';

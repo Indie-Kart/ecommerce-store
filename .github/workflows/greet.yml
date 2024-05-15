@@ -15,7 +15,6 @@ jobs:
       - name: Add comment
         uses: actions/github-script@v4
         with:
-          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           script: |
             const commentAuthor = context.payload.issue.user.login;
             const commentBody = `Hey @${commentAuthor} ! \n Thank you for raising an issue 💗 \n You can self assign the issue by commenting /assign in comment 😀 \n Make sure you follow [CODE OF CONDUCT](https://github.com/Indie-Kart/ecommerce-store/blob/main/CODE_OF_CONDUCT.md) and [CONTRIBUTING GUIDELINES](https://github.com/Indie-Kart/ecommerce-store/blob/main/Contributing.md) 🚀 \n Don’t Forget to ⭐ our [IndieKart](https://github.com/Indie-Kart/ecommerce-store/) `;

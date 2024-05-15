@@ -20,7 +20,7 @@ jobs:
       - name: Add tags to issues
         uses: actions/github-script@v4
         with:
-          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          
           script: |
             const { issue } = context.payload;
             const { owner, repo } = context.repo;
