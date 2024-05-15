@@ -62,7 +62,7 @@ jobs:
         id: assign_issue
         uses: actions/github-script@v4
         with:
-          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          
           script: |
             const { owner, repo, number } = context.issue;
             const assignee = context.payload.comment.user.login;

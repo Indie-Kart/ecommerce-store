@@ -40,7 +40,7 @@ jobs:
         if: ${{ steps.check_label.outputs.add_label == 'true' }}
         uses: actions/github-script@v4
         with:
-          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          
           script: |
             const { owner, repo, number } = context.issue;
 
