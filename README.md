@@ -1,5 +1,4 @@
-![gssoc]()
-![github-header-image]()
+![gssoc](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*fqJaH_oISOR96gLgpJBwWQ.png)
 
 <div align="center">
   <a href="https://github.com/indie-kart/ecommerce-store" >
