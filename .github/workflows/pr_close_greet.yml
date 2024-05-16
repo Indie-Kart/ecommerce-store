@@ -20,7 +20,7 @@ jobs:
 
             const greetingMessage = `Hello @${prCreator}! Your pull request #${prNumber} has been closed. Thank you for your contribution to IndieKart!`;
 
-            github.issues.createComment({
+            github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: prNumber,

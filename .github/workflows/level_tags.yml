@@ -34,7 +34,7 @@ jobs:
             }
 
             if (labelsToAdd.length > 0) {
-              github.issues.addLabels({
+              github.rest.issues.addLabels({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issueNumber,

@@ -21,7 +21,7 @@ jobs:
 
             const greetingMessage = `Hello @${issueCreator}! Thanks for creating issue #${issueNumber} on #${repo}.Please Comment /assign-me to self assign this issue to yourself, and please don't forget to star this repo.`;
 
-            github.issues.createComment({
+            github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issueNumber,
@@ -37,7 +37,7 @@ jobs:
             const issueNumber = context.payload.issue.number;
 
             labelsToAdd.forEach(label => {
-              github.issues.addLabels({
+              github.rest.issues.addLabels({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issueNumber,

@@ -20,7 +20,7 @@ jobs:
 
             const greetingMessage = `Hello @${issueCreator}! Your issue #${issueNumber} has been closed. Thank you for your contribution!`;
 
-            github.issues.createComment({
+            github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issueNumber,
