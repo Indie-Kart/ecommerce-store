@@ -15,9 +15,9 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const keywordsLabelsMap = {
-              "level1": ["bug", "error", "issue"],
+              "level1": ["bug", "error", "issue", "documentation", "docs"],
               "level2": ["feature", "enhancement", "new"],
-              "level1": ["documentation", "docs"],
+
               // Add more mappings as needed
             };
 
