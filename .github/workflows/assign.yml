@@ -1,0 +1,50 @@
+name: Auto Assign on Comment
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  auto_assign:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check Comment for "/assign-me"
+        id: check_comment
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const comment = context.payload.comment.body.trim();
+            return { assignMe: comment === "/assign-me" };
+
+      - name: Assign Issue
+        if: steps.check_comment.outputs.assignMe
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.addAssignees({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              assignees: [context.payload.comment.user.login]
+            });
+            
+      - name: Greet User
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = context.payload.issue;
+            const issueCreator = issue.user.login;
+            const issueNumber = issue.number;
+
+            const greetingMessage = `Hello @${issueCreator}!\nYou have been assigned this issue. As you begin working on the assigned issue, please ensure that you follow the contributing guidelines closely. This will help maintain the quality and consistency of the project. If a Pull Request (PR) is not created within 5 days from the issue assignment, the issue will be reassigned. We appreciate your understanding and look forward to your valuable contribution.;
+
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body: greetingMessage
+            });
