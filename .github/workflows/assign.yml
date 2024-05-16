@@ -40,7 +40,7 @@ jobs:
             const issueCreator = issue.user.login;
             const issueNumber = issue.number;
 
-            const greetingMessage = `Hello @${issueCreator}!\nYou have been assigned this issue. As you begin working on the assigned issue, please ensure that you follow the contributing guidelines closely. This will help maintain the quality and consistency of the project. If a Pull Request (PR) is not created within 5 days from the issue assignment, the issue will be reassigned. We appreciate your understanding and look forward to your valuable contribution.;
+            const greetingMessage = `Hello @${issueCreator}!\nYou have been assigned this issue. As you begin working on the assigned issue, please ensure that you follow the contributing guidelines closely. This will help maintain the quality and consistency of the project. If a Pull Request (PR) is not created within 5 days from the issue assignment, the issue will be reassigned. We appreciate your understanding and look forward to your valuable contribution.`;
 
             github.rest.issues.createComment({
               owner: context.repo.owner,
