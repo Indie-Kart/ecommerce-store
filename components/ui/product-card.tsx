@@ -47,6 +47,7 @@ const ProductCard: React.FC<ProductCard> = ({
           alt="" 
           fill
           className="aspect-square object-cover rounded-md"
+          loading="lazy" // Ensuring the image is lazy loaded
         />
         <div className="opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5">
           <div className="flex gap-x-6 justify-center">
