@@ -1,52 +1,46 @@
-name: Comment and Label on Issue Opened
+name: Greet and Label on Issue Creation
+
 on:
   issues:
-    types:
-      - opened
+    types: [opened]
 
 jobs:
-  comment_and_label:
+  greet-and-label:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Add comment
-        uses: actions/github-script@v4
+      - name: Greet User
+        uses: actions/github-script@v5
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const commentAuthor = context.payload.issue.user.login;
-            const commentBody = `Hey @${commentAuthor} ! \n Thank you for raising an issue 💗 \n You can self assign the issue by commenting /assign in comment 😀 \n Make sure you follow [CODE OF CONDUCT](https://github.com/Indie-Kart/ecommerce-store/blob/main/CODE_OF_CONDUCT.md) and [CONTRIBUTING GUIDELINES](https://github.com/Indie-Kart/ecommerce-store/blob/main/Contributing.md) 🚀 \n Don’t Forget to ⭐ our [IndieKart](https://github.com/Indie-Kart/ecommerce-store/) `;
-            const { owner, repo, number } = context.issue;
+            const issue = context.payload.issue;
+            const issueCreator = issue.user.login;
+            const issueNumber = issue.number;
+            const repo = context.payload.repository.full_name;
 
-            await github.issues.createComment({
-              owner: owner,
-              repo: repo,
-              issue_number: number,
-              body: commentBody
+            const greetingMessage = `Hello @${issueCreator}! Thanks for creating issue #${issueNumber} on #${repo}.Please Comment /assign-me to self assign this issue to yourself, and please don't forget to star this repo.`;
+
+            github.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body: greetingMessage
             });
 
-      - name: Add label if issue body contains "GSSoC24"
-        id: check_label
-        run: |
-          if [[ $(echo "${{ github.event.issue.body }}" | grep -q "GSSoC24"; echo $?) == 0 ]]; then
-            echo "::set-output name=add_label::true"
-          else
-            echo "::set-output name=add_label::false"
-          fi
-
-      - name: Add label "GSSoC23"
-        if: ${{ steps.check_label.outputs.add_label == 'true' }}
-        uses: actions/github-script@v4
+      - name: Auto Label Issue
+        uses: actions/github-script@v5
         with:
-          
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { owner, repo, number } = context.issue;
+            const labelsToAdd = ['gssoc']; // Add your desired labels here
+            const issueNumber = context.payload.issue.number;
 
-            await github.issues.addLabels({
-              owner: owner,
-              repo: repo,
-              issue_number: number,
-              labels: ["gssoc"]
+            labelsToAdd.forEach(label => {
+              github.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                labels: [label]
+              });
             });

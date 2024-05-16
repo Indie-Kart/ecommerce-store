@@ -1,22 +1,28 @@
-name: Comment on PR Closure
+name: Greet on PR Close
+
 on:
-  pull_request_target:
-    types:
-      - closed
+  pull_request:
+    types: [closed]
 
 jobs:
-  comment:
+  greet-on-close:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Comment on PR Closure
-        uses: actions/github-script@v4
+      - name: Greet User
+        uses: actions/github-script@v5
         with:
-          
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { owner, repo, number } = context.issue;
-            const commentAuthor = context.payload.pull_request.user.login;
-            const commentBody = `Thank you  @${commentAuthor} , for your valuable time and contribution in our IndieKart 💗. \n It’s our IndieKart, so Let’s build this altogether !!🤝\n  Hoping to see you soon with another PR again 😇 \n Wishing you all the best for your journey into Open Source🚀
-            `;
-            await github.issues.createComment({ owner, repo, issue_number: number, body: commentBody });
-            console.log(`Commented on the closed PR: ${commentBody}.`);
+            const pr = context.payload.pull_request;
+            const prCreator = pr.user.login;
+            const prNumber = pr.number;
+
+            const greetingMessage = `Hello @${prCreator}! Your pull request #${prNumber} has been closed. Thank you for your contribution to IndieKart!`;
+
+            github.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: greetingMessage
+            });

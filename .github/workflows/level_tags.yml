@@ -1,54 +1,43 @@
-name: Add Tags to Issues
+name: Assign Labels Based on Keywords
+
 on:
   issues:
-    types:
-      - opened
+    types: [opened]
 
 jobs:
-  add-tags:
+  assign-labels:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Assign Labels Based on Keywords
+        uses: actions/github-script@v5
         with:
-          node-version: '14'
-
-      - name: Add tags to issues
-        uses: actions/github-script@v4
-        with:
-          
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { issue } = context.payload;
-            const { owner, repo } = context.repo;
-            const { title, body } = issue;
+            const keywordsLabelsMap = {
+              "level1": ["bug", "error", "issue"],
+              "level2": ["feature", "enhancement", "new"],
+              "level1": ["documentation", "docs"],
+              // Add more mappings as needed
+            };
 
-            let tagsToAdd = [];
+            const issue = context.payload.issue;
+            const issueNumber = issue.number;
+            const title = issue.title.toLowerCase();
+            const body = issue.body.toLowerCase();
+            const labelsToAdd = [];
 
-            // Check if issue text contains "Documentation Bug"
-            if (body && body.toLowerCase().includes('documentation bug')) {
-              tagsToAdd.push('level1');
+            for (const [label, keywords] of Object.entries(keywordsLabelsMap)) {
+              if (keywords.some(keyword => title.includes(keyword) || body.includes(keyword))) {
+                labelsToAdd.push(label);
+              }
             }
 
-            // Check if issue title contains "Enhancement"
-            if (title && title.toLowerCase().includes('enhancement')) {
-              tagsToAdd.push('level2');
-            }
-
-            
-            if (tagsToAdd.length > 0) {
-              // Add tags to the issue
-              await github.issues.addLabels({
-                owner: owner,
-                repo: repo,
-                issue_number: issue.number,
-                labels: tagsToAdd
+            if (labelsToAdd.length > 0) {
+              github.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                labels: labelsToAdd
               });
-
-              console.log(`Added tags ${tagsToAdd.join(', ')} to issue #${issue.number}.`);
-            } else {
-              console.log('No tags to add.');
             }
