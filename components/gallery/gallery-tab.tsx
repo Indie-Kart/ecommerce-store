@@ -23,6 +23,7 @@ const GalleryTab: React.FC<GalleryTabProps> = ({
               src={image.url} 
               alt="" 
               className="object-cover object-center" 
+              loading="lazy" //added the lazy loading component.
             />
           </span>
           <span
