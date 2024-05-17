@@ -32,6 +32,7 @@ const Gallery: React.FC<GalleryProps> = ({
                 src={image.url}
                 alt="Image"
                 className="object-cover object-center"
+                loading="lazy" //added the lazy loading component.
               />
             </div>
           </Tab.Panel>
