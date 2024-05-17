@@ -7,6 +7,9 @@ on:
 jobs:
   assign-labels:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
 
     steps:
       - name: Assign Labels Based on Keywords

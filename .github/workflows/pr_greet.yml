@@ -7,6 +7,9 @@ on:
 jobs:
   greet-on-pr-creation:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
 
     steps:
       - name: Greet User
@@ -19,7 +22,7 @@ jobs:
             const prNumber = pr.number;
             const repo = context.payload.repository.full_name;
 
-            const greetingMessage = `Hello @${prCreator}! Thank you for creating the PR and contributing to our IndieKart 💗 \n Review team will review the PR and will reach out to you soon! 😇 \n Make sure that you have marked all the tasks that you are done with ✅. \n Thank you for your patience! 😀';	
+            const greetingMessage = `Hello @${prCreator}! Thank you for creating the PR and contributing to our IndieKart 💗 \n Review team will review the PR and will reach out to you soon! 😇 \n Make sure that you have marked all the tasks that you are done with ✅. \n Thank you for your patience! 😀`;	
 
             github.rest.issues.createComment({
               owner: context.repo.owner,
