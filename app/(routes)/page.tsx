@@ -3,6 +3,7 @@ import getProducts from "@/actions/get-products";
 import ProductList from "@/components/product-list";
 import Billboard from "@/components/ui/billboard";
 import Container from "@/components/ui/container";
+import ContactUs from "@/components/ui/contactus";
 
 export const revalidate = 0;
 
@@ -19,6 +20,7 @@ const HomePage = async () => {
         <div className="flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8">
           <ProductList title="Featured Products" items={products} />
         </div>
+        <ContactUs />
       </div>
     </Container>
   )
