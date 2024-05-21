@@ -1,31 +1,26 @@
-name: Greet on PR Close
+name: Comment on Pull Request Close
 
 on:
   pull_request:
     types: [closed]
 
 jobs:
-  greet-on-close:
+  comment:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
-      pull-requests: write
 
     steps:
-      - name: Greet User
-        uses: actions/github-script@v5
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const pr = context.payload.pull_request;
-            const prCreator = pr.user.login;
-            const prNumber = pr.number;
-
-            const greetingMessage = `Hello @${prCreator}! Your pull request #${prNumber} has been closed. Thank you for your contribution to IndieKart!`;
-
-            github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: prNumber,
-              body: greetingMessage
-            });
+    - name: Comment on the closed pull request
+      uses: actions/github-script@v6
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const prCreator = pr.user.login;
+          const prNumber = pr.number;
+          
+          const comment = `Hello @${prCreator}! Your pull request #${prNumber} has been closed. Thank you for your contribution to IndieKart!`;
+          github.rest.issues.createComment({
+            issue_number: context.payload.pull_request.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: comment,
+          });
