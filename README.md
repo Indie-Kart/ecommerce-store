@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="https://github.com/indie-kart/ecommerce-store" >
-    <img src="https://img.shields.io/github/commit-activity/w/indie-kart/ecoomerce-store" alt="GitHub commit activity">
+    <img src="https://img.shields.io/github/commit-activity/w/indie-kart/ecommerce-store" alt="GitHub commit activity">
   </a>
   &nbsp;
   <a href="https://github.com/Tanay-ErrorCode/lupo-skill">
