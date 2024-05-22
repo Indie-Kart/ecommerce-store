@@ -7,9 +7,7 @@ on:
 jobs:
   comment:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
-      pull-requests: write
+    permissions: write-all
 
     steps:
     - name: Comment on the closed pull request

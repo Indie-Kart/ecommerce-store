@@ -7,9 +7,7 @@ on:
 jobs:
   greet-on-close:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
-      pull-requests: write
+    permissions: write-all
 
     steps:
       - name: Greet User on PR Creation
