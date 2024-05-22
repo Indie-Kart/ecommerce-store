@@ -1,26 +1,30 @@
-name: Comment on Pull Request
+name: Greet on PR Creation
 
 on:
   pull_request:
     types: [opened]
 
 jobs:
-  comment:
+  greet-on-close:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
 
     steps:
-    - name: Comment on the new pull request
-      uses: actions/github-script@v6
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        script: |
-          const prCreator = pr.user.login;
-          const prNumber = pr.number;
+      - name: Greet User on PR Creation
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = context.payload.pull_request;
+            const prCreator = pr.user.login;
 
-          const comment =`Hello @${prCreator}! Thank you for creating the PR and contributing to our IndieKart 💗 \n Review team will review the PR and will reach out to you soon! 😇 \n Make sure that you have marked all the tasks that you are done with ✅. \n Thank you for your patience! 😀`;
-          github.rest.issues.createComment({
+            const prGreetingMessage = `Hello @${prCreator}! Thank you for creating the PR and contributing to our IndieKart 💗 \n Review team will review the PR and will reach out to you soon! 😇 \n Make sure that you have marked all the tasks that you are done with ✅. \n Thank you for your patience! 😀`;
+
+            github.rest.issues.createComment({
             issue_number: context.payload.pull_request.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: comment,
-          });
+            body: prGreetingMessage,
+            });
