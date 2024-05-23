@@ -1,9 +1,30 @@
 ## PR Description 📜
 
-Please include summary related to the issue you have fixed and describe your PR in brief over here by specifying the issue number on which you were working below
+<!-- Please include a summary of the changes and the related issue. Please also include relevant motivation and context. List any dependencies that are required for this change. -->
+
 Fixes # <your_issue_number>
 
 <hr>
+
+### Type of Change
+
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] Documentation update
+
+### How Has This Been Tested?
+
+<!-- Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration. -->
+
+- [ ] Test A
+- [ ] Test B
+
+**Test Configuration**:
+* Firmware version:
+* Hardware:
+* Toolchain:
+* SDK:
  
 ## Mark the task you have completed ✅
 
@@ -17,14 +38,9 @@ Fixes # <your_issue_number>
 - [ ] I have added screenshot for website preview in assets/images 
 - [ ] I have added README.md in my folder 
 
-
-
 <hr>
 
 ## Add your screenshots(Optional) 📸
-
-
-
 
 --- 
 <br>
