@@ -10,6 +10,7 @@ const Navbar = async () => {
 
   return (
     <div className="border-b fixed top-0 left-0 z-50 bg-white w-full overflow-auto">
+
       <Container>
         <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center">
           <Link href="/" className="ml-4 flex lg:ml-0 gap-x-2">
