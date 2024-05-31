@@ -11,6 +11,9 @@ import getColors from '@/actions/get-colors';
 
 import Filter from './components/filter';
 import MobileFilters from './components/mobile-filters';
+import PriceFilter from '@/actions/PriceFilter';
+
+
 
 export const revalidate = 0;
 
@@ -21,6 +24,8 @@ interface CategoryPageProps {
   searchParams: {
     colorId: string;
     sizeId: string;
+    minPrice: string;
+    maxPrice: string;
   }
 }
 
@@ -32,6 +37,8 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
     categoryId: params.categoryId,
     colorId: searchParams.colorId,
     sizeId: searchParams.sizeId,
+    minPrice: searchParams.minPrice,
+    maxPrice: searchParams.maxPrice,
   });
   const sizes = await getSizes();
   const colors = await getColors();
@@ -57,6 +64,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
                 name="Colors" 
                 data={colors}
               />
+             <PriceFilter />
             </div>
             <div className="mt-6 lg:col-span-4 lg:mt-0">
               {products.length === 0 && <NoResults />}
