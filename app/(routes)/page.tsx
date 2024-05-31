@@ -5,6 +5,7 @@ import getBillboard from "@/actions/get-billboard";
 import getProducts from "@/actions/get-products";
 import ProductList from "@/components/product-list";
 import Billboard from "@/components/ui/billboard";
+import ContactPage from '@/components/ui/contact';
 // import Tilty from 'react-tilty';
 // Sample reviews (you can customize these)
 const sampleReviews = [
@@ -90,6 +91,7 @@ const exampleData: BillboardType = {
           {/* Customer Reviews Section */}
           <h2 className="text-2xl font-semibold">Customer Reviews</h2>
           <CustomerReviews reviews={sampleReviews} />
+          <ContactPage />
         </div>
       </div>
     </Container>
