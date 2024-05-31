@@ -18,6 +18,19 @@ const Info: React.FC<InfoProps> = ({ data }) => {
     cart.addItem(data);
   }
 
+  const onShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: data.name,
+        text: `Check out this product: ${data.name}`,
+        url: window.location.href
+      }).then(() => console.log('Shared successfully'))
+        .catch((error) => console.error('Error sharing:', error));
+    } else {
+      console.log('Web Share API is not supported in this browser.');
+    }
+  };
+
   return ( 
     <div>
       <h1 className="text-3xl font-bold text-gray-900">{data.name}</h1>
@@ -43,6 +56,9 @@ const Info: React.FC<InfoProps> = ({ data }) => {
         <Button onClick={onAddToCart} className="flex items-center gap-x-2">
           Add To Cart
           <ShoppingCart size={20} />
+        </Button>
+        <Button onClick={onShare} className="flex items-center gap-x-2">
+          Share
         </Button>
       </div>
     </div>
