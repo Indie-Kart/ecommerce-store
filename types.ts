@@ -14,11 +14,14 @@ export interface Image {
   url: string;
 }
 
-export interface Billboard {
-  id: string;
+export interface BillboardImage {
+  url: string;
   label: string;
-  imageUrl: string;
-};
+}
+
+export interface Billboard {
+  images: BillboardImage[];
+}
 
 export interface Category {
   id: string;

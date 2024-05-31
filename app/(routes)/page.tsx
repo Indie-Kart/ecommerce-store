@@ -63,12 +63,28 @@ const CustomerReviews = ({ reviews }) => {
 
 const HomePage = async () => {
   const products = await getProducts({ isFeatured: true });
-  const billboard = await getBillboard("11747fa2-76e4-40fa-8cca-f4af2222f836");
+
+const exampleData: BillboardType = {
+  images: [
+    {
+      url: 'https://i.pinimg.com/564x/4a/e5/d3/4ae5d3074757a801a194a46b84f095cb.jpg',
+      label: 'Image 1'
+    },
+    {
+      url: 'https://i.pinimg.com/564x/34/3b/2d/343b2dfbdd4311d9c01dce42cc6240e0.jpg',
+      label: 'Image 2'
+    },
+    {
+      url: 'https://i.pinimg.com/564x/44/a7/a9/44a7a90cb765d8880e1896c39fa71ab9.jpg',
+      label: 'Image 3'
+    }
+  ]
+};
 
   return (
     <Container>
       <div className="space-y-10 pb-10">
-        <Billboard data={billboard} />
+        <Billboard data={exampleData} />
         <div className="flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8">
           <ProductList title="Featured Products" items={products} />
           {/* Customer Reviews Section */}
