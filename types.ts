@@ -40,3 +40,11 @@ export interface Color {
   name: string;
   value: string;
 };
+
+
+export interface PriceRange {
+  id: string;
+  name: string;
+  min: number;
+  max: number | null;
+}
