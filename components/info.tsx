@@ -1,6 +1,6 @@
 "use client";
 
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, Trash2 } from "lucide-react";
 
 import Currency  from "@/components/ui/currency";
 import Button from "@/components/ui/button";
@@ -17,6 +17,23 @@ const Info: React.FC<InfoProps> = ({ data }) => {
   const onAddToCart = () => {
     cart.addItem(data);
   }
+
+  const isInCart = cart.items.some((item) => item.id === data.id);
+     const onRemoveFromCart= () => {
+    cart.removeItem(data.id);
+  };
+  const onShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: data.name,
+        text: `Check out this product: ${data.name}`,
+        url: window.location.href
+      }).then(() => console.log('Shared successfully'))
+        .catch((error) => console.error('Error sharing:', error));
+    } else {
+      console.log('Web Share API is not supported in this browser.');
+    }
+  };
 
   return ( 
     <div>
@@ -40,9 +57,22 @@ const Info: React.FC<InfoProps> = ({ data }) => {
         </div>
       </div>
       <div className="mt-10 flex items-center gap-x-3">
-        <Button onClick={onAddToCart} className="flex items-center gap-x-2">
-          Add To Cart
-          <ShoppingCart size={20} />
+              {
+                  isInCart ? (
+                      <Button onClick={onRemoveFromCart} className="flex items-center gap-x-2">
+                Remove Item
+                    <Trash2 size={20} className="text-red-600"/>
+                      </Button>
+                  ) :
+                      (
+                        <Button onClick={onAddToCart} className="flex items-center gap-x-2">
+                            Add To Cart
+                            <ShoppingCart size={20} />
+                        </Button>
+                      )
+            }
+        <Button onClick={onShare} className="flex items-center gap-x-2">
+          Share
         </Button>
       </div>
     </div>

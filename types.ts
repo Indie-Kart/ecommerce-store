@@ -14,11 +14,14 @@ export interface Image {
   url: string;
 }
 
-export interface Billboard {
-  id: string;
+export interface BillboardImage {
+  url: string;
   label: string;
-  imageUrl: string;
-};
+}
+
+export interface Billboard {
+  images: BillboardImage[];
+}
 
 export interface Category {
   id: string;
@@ -37,3 +40,11 @@ export interface Color {
   name: string;
   value: string;
 };
+
+
+export interface PriceRange {
+  id: string;
+  name: string;
+  min: number;
+  max: number | null;
+}
