@@ -46,7 +46,7 @@ const Billboard: React.FC<BillboardProps> = ({
         ))}
       </Swiper>
     </div>
-   );
+  );
 };
 
 export default Billboard;

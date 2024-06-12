@@ -1,24 +1,22 @@
-import ProductList from '@/components/product-list'
-import Gallery from '@/components/gallery';
-import Info from '@/components/info';
-import getProduct from '@/actions/get-product';
-import getProducts from '@/actions/get-products';
-import Container from '@/components/ui/container';
-import Tilty from 'react-tilty';
+import ProductList from "@/components/product-list";
+import Gallery from "@/components/gallery";
+import Info from "@/components/info";
+import getProduct from "@/actions/get-product";
+import getProducts from "@/actions/get-products";
+import Container from "@/components/ui/container";
+
 export const revalidate = 0;
 
 interface ProductPageProps {
   params: {
     productId: string;
-  },
+  };
 }
 
-const ProductPage: React.FC<ProductPageProps> = async ({ 
-  params
- }) => {
+const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
   const product = await getProduct(params.productId);
-  const suggestedProducts = await getProducts({ 
-    categoryId: product?.category?.id
+  const suggestedProducts = await getProducts({
+    categoryId: product?.category?.id,
   });
 
   if (!product) {
@@ -26,7 +24,7 @@ const ProductPage: React.FC<ProductPageProps> = async ({
   }
 
   return (
-    <div className="bg-white">
+    <div className="bg-white pt-10">
       <Container>
         <div className="px-4 py-10 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
@@ -39,8 +37,8 @@ const ProductPage: React.FC<ProductPageProps> = async ({
           <ProductList title="Related Items" items={suggestedProducts} />
         </div>
       </Container>
-    </div>  
-  )
-}
+    </div>
+  );
+};
 
 export default ProductPage;
