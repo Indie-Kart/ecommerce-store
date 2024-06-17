@@ -62,6 +62,7 @@ const CustomerReviews = ({ reviews }) => {
 };
 
 const HomePage = async () => {
+  const billboard = await getBillboard();
   const products = await getProducts({ isFeatured: true });
 
 const exampleData: BillboardType = {
