@@ -31,6 +31,7 @@
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-marquee-slider": "^1.1.5",
+    "react-rating-stars-component": "^2.2.0",
     "react-spinners": "^0.13.8",
     "react-tilty": "^3.0.0",
     "swiper": "^11.1.4",
