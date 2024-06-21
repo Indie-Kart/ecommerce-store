@@ -10,6 +10,7 @@ import IconButton from "@/components/ui/icon-button";
 import usePreviewModal from "@/hooks/use-preview-modal";
 import useCart from "@/hooks/use-cart";
 import { Product } from "@/types";
+import Rating from "./ratings" // Import the new Rating component
 
 interface ProductCardProps {
   data: Product;
@@ -89,6 +90,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
       <div>
         <p className="font-semibold text-lg">{data.name}</p>
         <p className="text-sm text-gray-500">{data.category?.name}</p>
+        <Rating value={Math.floor(Math.random() * 5) + 1} />
       </div>
       {/* Price */}
       <div className="flex items-center justify-between">
