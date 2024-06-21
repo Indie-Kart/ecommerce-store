@@ -20,6 +20,7 @@ body:
       label: "Record"
       options:
         - label: "I agree to follow this project's Code of Conduct"
-          required: true
         - label: "I'm a GSSOC'24 contributor"
+        - label: "I'm a VSOC'24(Vinayasa Summer of Code) contributor"
+          required: true
         - label: "I want to work on this issue"
