@@ -33,6 +33,7 @@
     "react-google-login": "^5.2.2",
     "react-hot-toast": "^2.4.1",
     "react-marquee-slider": "^1.1.5",
+    "react-rating-stars-component": "^2.2.0",
     "react-spinners": "^0.13.8",
     "react-tilt": "^1.0.2",
     "swiper": "^11.1.4",
