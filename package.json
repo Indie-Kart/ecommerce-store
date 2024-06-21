@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
+    "@react-oauth/google": "^0.12.1",
     "@types/node": "20.2.5",
     "@types/react": "18.2.9",
     "@types/react-dom": "18.2.4",
@@ -29,6 +30,7 @@
     "react": "^18.2.0",
     "react-animated-cursor": "^2.11.2",
     "react-dom": "18.2.0",
+    "react-google-login": "^5.2.2",
     "react-hot-toast": "^2.4.1",
     "react-marquee-slider": "^1.1.5",
     "react-spinners": "^0.13.8",
