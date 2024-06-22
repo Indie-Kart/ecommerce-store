@@ -2,14 +2,17 @@
 
 import React, { useState } from 'react';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import { useRouter } from 'next/navigation';
 
 const Login: React.FC = () => {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     console.log({ email, password });
+    // Logic for login goes here
   };
 
   const handleGoogleSuccess = (credentialResponse: any) => {
@@ -18,6 +21,10 @@ const Login: React.FC = () => {
 
   const handleGoogleError = () => {
     console.log('Google login failed');
+  };
+
+  const handleSignUpClick = () => {
+    router.push('/signup');
   };
 
   return (
@@ -69,9 +76,9 @@ const Login: React.FC = () => {
           </div>
           <p className="mt-6 text-center text-sm text-gray-600">
             Don't have an account?{' '}
-            <a href="/signup" className="text-blue-600 hover:text-blue-500 font-medium">
+            <div className="text-blue-600 hover:text-blue-500 font-medium cursor-pointer" onClick={handleSignUpClick}>
               Sign Up
-            </a>
+            </div>
           </p>
         </div>
       </div>
