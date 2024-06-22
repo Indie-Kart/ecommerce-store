@@ -9,6 +9,7 @@ import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 import AnimatedCursor from 'react-animated-cursor'
 import './globals.css'
+import Login from './login/page'
 
 const font = Urbanist({ subsets: ['latin'] })
 
@@ -54,7 +55,7 @@ export default function RootLayout({
         
         <ModalProvider />
         <Navbar />
-
+        
         {children}
         <SpeedInsights /> 
         <Footer />

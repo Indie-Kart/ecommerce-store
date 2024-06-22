@@ -11,8 +11,6 @@
   "dependencies": {
     "@headlessui/react": "^1.7.15",
     "@react-oauth/google": "^0.12.1",
-    "@types/node": "20.2.5",
-    "@types/react": "18.2.9",
     "@types/react-dom": "18.2.4",
     "@vercel/speed-insights": "^1.0.10",
     "animated-cursor": "^1.2.0",
@@ -24,12 +22,12 @@
     "eslint-config-next": "13.4.4",
     "lottie-react": "^2.4.0",
     "lucide-react": "^0.241.0",
-    "next": "^14.2.3",
+    "next": "^14.2.4",
     "postcss": "8.4.24",
     "query-string": "^8.1.0",
-    "react": "^18.2.0",
+    "react": "^18.3.1",
     "react-animated-cursor": "^2.11.2",
-    "react-dom": "18.2.0",
+    "react-dom": "^18.2.0",
     "react-google-login": "^5.2.2",
     "react-hot-toast": "^2.4.1",
     "react-marquee-slider": "^1.1.5",
@@ -38,11 +36,13 @@
     "swiper": "^11.1.4",
     "tailwind-merge": "^1.13.0",
     "tailwindcss": "3.3.2",
-    "typescript": "5.1.3",
     "zustand": "^4.3.8"
   },
   "devDependencies": {
-    "@tailwindcss/aspect-ratio": "^0.4.2"
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@types/node": "^20.14.7",
+    "@types/react": "^18.3.3",
+    "typescript": "^5.5.2"
   },
   "description": "![Copy of Copy of Fullstack Twitter Clone (1)](https://github.com/AntonioErdeljac/next13-ecommerce-admin/assets/23248726/088760cb-837d-44b7-a959-63089385d0a0)",
   "main": "next.config.js",
