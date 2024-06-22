@@ -1,8 +1,8 @@
-"use client"; 
+"use client";
 
 import React, { useState } from 'react';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
-import { useRouter } from 'next/navigation'; 
+import { useRouter } from 'next/navigation';
 
 const Login: React.FC = () => {
   const router = useRouter();
@@ -12,6 +12,7 @@ const Login: React.FC = () => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     console.log({ email, password });
+    // Logic for login goes here
   };
 
   const handleGoogleSuccess = (credentialResponse: any) => {
