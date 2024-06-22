@@ -5,11 +5,9 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import ModalProvider from '@/providers/modal-provider'
 import ToastProvider from '@/providers/toast-provider'
 import Navbar from '@/components/navbar'
-// import HomePage from './(routes)/page'
 import Footer from '@/components/footer'
 import AnimatedCursor from 'react-animated-cursor'
 import './globals.css'
-import Login from './login/page'
 
 const font = Urbanist({ subsets: ['latin'] })
 
