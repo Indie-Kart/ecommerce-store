@@ -11,7 +11,7 @@ import CartItem from './components/cart-item';
 import Lottie from 'lottie-react';
 import emptyCartAnimation from '@/json/empty_cart.json'
 
-export const revalidate = 0;
+export const revalidate = 60;
 
 const CartPage = () => {
   const [isMounted, setIsMounted] = useState(false);

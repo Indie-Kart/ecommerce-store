@@ -15,7 +15,7 @@ import PriceFilter from '@/actions/PriceFilter';
 
 
 
-export const revalidate = 0;
+export const revalidate = 60;
 
 interface CategoryPageProps {
   params: {
