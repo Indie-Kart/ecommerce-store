@@ -9,6 +9,7 @@ import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 import AnimatedCursor from 'react-animated-cursor'
 import './globals.css'
+import ReduxProvider from '@/providers/redux-provider'
 
 const font = Urbanist({ subsets: ['latin'] })
 
@@ -28,7 +29,7 @@ export default function RootLayout({
       
     <html lang="en">
       <body className={font.className}>
-      <AnimatedCursor 
+              <AnimatedCursor 
         innerSize={9}
         outerSize={40}
         color="98, 111, 152"
@@ -49,15 +50,15 @@ export default function RootLayout({
           'button',
           '.link'
         ]}
-    />
-        <ToastProvider />
-        
-        <ModalProvider />
-        <Navbar />
-
-        {children}
-        <SpeedInsights /> 
-        <Footer />
+        <ReduxProvider>
+          <ToastProvider />
+          <ModalProvider />
+          <Navbar />
+          {children}
+          <SpeedInsights /> 
+          <Footer />
+        </ReduxProvider>
+                </AnimatedCursor>         
       </body>
     </html>
     </>
