@@ -71,7 +71,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
           />
         </div>
         <div className="flex items-center gap-x-4">
-          <h3 className="font-semibold text-black">Color:</h3>
+          <h3 className="font-semibold text-black">Rating:</h3>
           <Rating value={Math.floor(Math.random() * 5) + 1} />
         </div>
       </div>
