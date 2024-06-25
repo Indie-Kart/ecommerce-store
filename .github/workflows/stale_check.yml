@@ -1,0 +1,44 @@
+name: Comment on stale assigned issues
+
+on:
+  schedule:
+    - cron: '0 0 */6 * *'  # Runs every 6 days at midnight
+  workflow_dispatch:  # Allows manual triggering of the workflow
+
+jobs:
+  comment-on-stale-issues:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Comment on stale assigned issues
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              assignee: '*'
+            });
+
+            const now = new Date();
+            const fiveDaysInMilliseconds = 5 * 24 * 60 * 60 * 1000;
+
+            for (const issue of issues.data) {
+              if (issue.assignees.length > 0) {
+                const assignedAt = new Date(issue.created_at); // Assuming issue assigned date is the same as issue created date
+                const timeDiff = now - assignedAt;
+
+                if (timeDiff > fiveDaysInMilliseconds) {
+                  await github.rest.issues.createComment({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: issue.number,
+                    body: `This issue has been assigned to @${issue.assignees[0].login} for more than 5 days. Please provide an update.`
+                  });
+                }
+              }
+            }
