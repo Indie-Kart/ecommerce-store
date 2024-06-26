@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface ChatbotModalProps {
   onClose: () => void;
@@ -7,40 +7,40 @@ interface ChatbotModalProps {
 interface Message {
   id: number;
   text: string;
-  user: 'bot' | 'user';
+  user: "bot" | "user";
 }
 
 const ChatbotModal: React.FC<ChatbotModalProps> = ({ onClose }) => {
   const [messages, setMessages] = useState<Message[]>([]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
 
   const handleSendMessage = () => {
     if (input.trim()) {
       const newUserMessage: Message = {
         id: messages.length + 1,
         text: input,
-        user: 'user',
+        user: "user",
       };
       setMessages([...messages, newUserMessage]);
-      setInput('');
+      setInput("");
 
       // Simulate bot response
       const botResponse: Message = {
         id: messages.length + 2,
         text: getBotResponse(input),
-        user: 'bot',
+        user: "bot",
       };
-      setMessages(prevMessages => [...prevMessages, newUserMessage, botResponse]);
+      setMessages((prevMessages) => [...prevMessages, botResponse]);
     }
   };
 
   const getBotResponse = (input: string) => {
-    if (input.toLowerCase().includes('hello')) {
-      return 'Hello! How can I assist you today?';
-    } else if (input.toLowerCase().includes('how are you')) {
-      return 'I am just a bot, but I am here to help you!';
+    if (input.toLowerCase().includes("hello")) {
+      return "Hello! How can I assist you today?";
+    } else if (input.toLowerCase().includes("how are you")) {
+      return "I am just a bot, but I am here to help you!";
     } else {
-      return 'I am sorry, I didn\'t understand that. Can you please rephrase?';
+      return "I am sorry, I didn't understand that. Can you please rephrase?";
     }
   };
 
@@ -57,10 +57,12 @@ const ChatbotModal: React.FC<ChatbotModalProps> = ({ onClose }) => {
           </button>
         </div>
         <div className="chatbot-messages mb-4 max-h-60 overflow-y-auto">
-          {messages.map(message => (
+          {messages.map((message) => (
             <div
               key={message.id}
-              className={`p-2 rounded mb-2 ${message.user === 'bot' ? 'bg-blue-200' : 'bg-green-200'}`}
+              className={`p-2 rounded mb-2 ${
+                message.user === "bot" ? "bg-blue-200" : "bg-green-200"
+              }`}
             >
               {message.text}
             </div>
@@ -71,7 +73,7 @@ const ChatbotModal: React.FC<ChatbotModalProps> = ({ onClose }) => {
             type="text"
             className="flex-grow p-2 border rounded-l"
             value={input}
-            onChange={e => setInput(e.target.value)}
+            onChange={(e) => setInput(e.target.value)}
             placeholder="Type a message..."
           />
           <button
