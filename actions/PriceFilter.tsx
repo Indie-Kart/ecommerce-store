@@ -2,7 +2,7 @@
 
 import qs from "query-string";
 import { useRouter, useSearchParams } from "next/navigation";
-import Button from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { PriceRange } from "@/types";
 
@@ -27,22 +27,26 @@ const PriceFilter: React.FC = () => {
     let query: any = {
       ...current,
       minPrice: String(range.min),
-      maxPrice: range.max === null ? 'null' : String(range.max),
+      maxPrice: range.max === null ? "null" : String(range.max),
     };
 
     // Check if the current selected filter is the same as the clicked one, if so, clear it
     if (
       selectedMinPrice === String(range.min) &&
-      (selectedMaxPrice === String(range.max) || (range.max === null && selectedMaxPrice === 'null'))
+      (selectedMaxPrice === String(range.max) ||
+        (range.max === null && selectedMaxPrice === "null"))
     ) {
       delete query.minPrice;
       delete query.maxPrice;
     }
 
-    const url = qs.stringifyUrl({
-      url: window.location.href,
-      query,
-    }, { skipNull: true });
+    const url = qs.stringifyUrl(
+      {
+        url: window.location.href,
+        query,
+      },
+      { skipNull: true }
+    );
 
     router.push(url);
   };
@@ -56,10 +60,11 @@ const PriceFilter: React.FC = () => {
           <div key={range.id} className="flex items-center">
             <Button
               className={cn(
-                'rounded-md text-sm text-gray-800 p-2 bg-white border border-gray-300',
+                "rounded-md text-sm text-gray-800 p-2 bg-white border border-gray-300",
                 selectedMinPrice === String(range.min) &&
-                (selectedMaxPrice === String(range.max) || (range.max === null && selectedMaxPrice === 'null')) &&
-                'bg-black text-white'
+                  (selectedMaxPrice === String(range.max) ||
+                    (range.max === null && selectedMaxPrice === "null")) &&
+                  "bg-black text-white"
               )}
               onClick={() => onClick(range)}
             >

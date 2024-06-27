@@ -1,21 +1,21 @@
 import { Product } from "@/types";
 import qs from "query-string";
 
-const URL=`${process.env.NEXT_PUBLIC_API_URL}/products`;
+const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
 
 interface Query {
   categoryId?: string;
   colorId?: string;
   sizeId?: string;
   isFeatured?: boolean;
-  minPrice?:string;
-  maxPrice?:string;
+  minPrice?: string;
+  maxPrice?: string;
 }
 
 const getProducts = async (query: Query): Promise<Product[]> => {
   const url = qs.stringifyUrl({
     url: URL,
-    query: { 
+    query: {
       colorId: query.colorId,
       sizeId: query.sizeId,
       categoryId: query.categoryId,
@@ -26,6 +26,10 @@ const getProducts = async (query: Query): Promise<Product[]> => {
   });
 
   const res = await fetch(url);
+
+  if (!res.ok) {
+    throw new Error("An error occurred while fetching the data.");
+  }
 
   return res.json();
 };

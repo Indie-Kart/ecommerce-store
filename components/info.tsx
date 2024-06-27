@@ -3,7 +3,7 @@
 import { Heart, ShoppingCart, Trash2 } from "lucide-react";
 
 import Currency from "@/components/ui/currency";
-import Button from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { Product } from "@/types";
 import useCart from "@/hooks/use-cart";
 import useWishlist from "@/hooks/use-wishlist";
@@ -72,7 +72,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
         </div>
         <div className="flex items-center gap-x-4">
           <h3 className="font-semibold text-black">Rating:</h3>
-          <Rating value={Math.floor(Math.random() * 5) + 1} />
+          <Rating value={4} />
         </div>
       </div>
       <div className="mt-10 flex items-center gap-x-3 flex-wrap gap-y-2">
