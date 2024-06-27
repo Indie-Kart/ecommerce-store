@@ -1,7 +1,7 @@
 // ChatbotIcon.tsx
-"use client"
-import React, { useState } from 'react';
-import ChatbotModal from './chatbotmodel';
+"use client";
+import React, { useState } from "react";
+import ChatbotModal from "./chatbotmodel";
 
 const ChatbotIcon: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);

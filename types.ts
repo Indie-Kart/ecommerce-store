@@ -8,7 +8,7 @@ export interface Product {
   color: Color;
   images: Image[];
   rating: number;
-};
+}
 
 export interface Image {
   id: string;
@@ -28,20 +28,19 @@ export interface Category {
   id: string;
   name: string;
   billboard: Billboard;
-};
+}
 
 export interface Size {
   id: string;
   name: string;
   value: string;
-};
+}
 
 export interface Color {
   id: string;
   name: string;
   value: string;
-};
-
+}
 
 export interface PriceRange {
   id: string;

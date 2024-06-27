@@ -1,5 +1,5 @@
 // HomePage.tsx
-import React from 'react';
+import React from "react";
 import Container from "@/components/ui/container";
 import getProducts from "@/actions/get-products";
 import ProductList from "@/components/product-list";
@@ -40,7 +40,9 @@ const sampleReviews = [
   },
 ];
 
-const ReviewCard: React.FC<{ review: typeof sampleReviews[0] }> = ({ review }) => {
+const ReviewCard: React.FC<{ review: (typeof sampleReviews)[0] }> = ({
+  review,
+}) => {
   return (
     <div className="card bg-white p-5 rounded-full shadow-md">
       <p className="text-gray-600">{review.content}</p>
@@ -49,10 +51,12 @@ const ReviewCard: React.FC<{ review: typeof sampleReviews[0] }> = ({ review }) =
   );
 };
 
-const CustomerReviews: React.FC<{ reviews: typeof sampleReviews }> = ({ reviews }) => {
+const CustomerReviews: React.FC<{ reviews: typeof sampleReviews }> = ({
+  reviews,
+}) => {
   return (
     <div className="reviews-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {reviews.map(review => (
+      {reviews.map((review) => (
         <ReviewCard key={review.id} review={review} />
       ))}
     </div>
@@ -65,18 +69,18 @@ const HomePage: React.FC = async () => {
   const exampleData = {
     images: [
       {
-        url: 'https://i.pinimg.com/564x/4a/e5/d3/4ae5d3074757a801a194a46b84f095cb.jpg',
-        label: 'Image 1'
+        url: "https://i.pinimg.com/564x/4a/e5/d3/4ae5d3074757a801a194a46b84f095cb.jpg",
+        label: "Image 1",
       },
       {
-        url: 'https://i.pinimg.com/564x/34/3b/2d/343b2dfbdd4311d9c01dce42cc6240e0.jpg',
-        label: 'Image 2'
+        url: "https://i.pinimg.com/564x/34/3b/2d/343b2dfbdd4311d9c01dce42cc6240e0.jpg",
+        label: "Image 2",
       },
       {
-        url: 'https://i.pinimg.com/564x/44/a7/a9/44a7a90cb765d8880e1896c39fa71ab9.jpg',
-        label: 'Image 3'
-      }
-    ]
+        url: "https://i.pinimg.com/564x/44/a7/a9/44a7a90cb765d8880e1896c39fa71ab9.jpg",
+        label: "Image 3",
+      },
+    ],
   };
 
   return (

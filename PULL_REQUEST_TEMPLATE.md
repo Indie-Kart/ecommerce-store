@@ -1,12 +1,12 @@
-## PR Description 📜
+# PR Description 📜
 
 <!-- Please include a summary of the changes and the related issue. Please also include relevant motivation and context. List any dependencies that are required for this change. -->
 
 Fixes # <your_issue_number>
 
-<hr>
+<!-- In order to tick the check box, put an x inside them. For example, [x] like this -->
 
-### Type of Change
+## Type of Change
 
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (non-breaking change which adds functionality)
@@ -21,28 +21,26 @@ Fixes # <your_issue_number>
 - [ ] Test B
 
 **Test Configuration**:
-* Firmware version:
-* Hardware:
-* Toolchain:
-* SDK:
- 
+
+- Firmware version:
+- Hardware:
+- Toolchain:
+- SDK:
+
 ## Mark the task you have completed ✅
 
-<!----Please delete options that are not relevant. In order to tick the check box just but x inside them for example [x] like this----->
+<!----Please delete options that are not relevant.----->
 
 - [ ] I follow [CONTRIBUTING GUIDELINE](https://github.com/Indie-Kart/ecommerce-store/blob/main/Contributing.md) & [CODE OF CONDUCT](https://github.com/Indie-Kart/ecommerce-store/blob/main/CODE_OF_CONDUCT.md) of this project.
 - [ ] I have performed a self-review of my own code or work.
 - [ ] I have commented my code, particularly in hard-to-understand areas.
 - [ ] My changes generates no new warnings.
 - [ ] I have followed proper naming convention showed in [CONTRIBUTING GUIDELINE](https://github.com/Indie-Kart/ecommerce-store/blob/main/Contributing.md)
-- [ ] I have added screenshot for website preview in assets/images 
-- [ ] I have added README.md in my folder 
-
-<hr>
+- [ ] I have added screenshot for website preview in assets/images
+- [ ] I have added README.md in my folder
 
 ## Add your screenshots(Optional) 📸
 
---- 
-<br>
+---
 
 ## Thank you soo much for contributing to our repository 💗
