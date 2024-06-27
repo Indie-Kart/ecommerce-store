@@ -19,7 +19,7 @@ const ProductList: React.FC<ProductListProps> = ({ title, items }) => {
         {items.map((item) => (
           <Tilt key={item.id} className="tilt">
             <ProductCard data={item} />
-            {console.log(item)}
+            {/* {console.log(item)} */}
           </Tilt>
         ))}
       </div>
