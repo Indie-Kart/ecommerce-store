@@ -7,7 +7,7 @@ export const config = {
   callbacks: {
     authorized({ request, auth }) {
       const { pathname } = request.nextUrl;
-      if (pathname === "/middleware-example") return !!auth;
+      if (pathname === "./middleware.ts") return !!auth;
       return true;
     },
     jwt({ token, user, profile }) {
