@@ -7,17 +7,20 @@ export const config = {
   callbacks: {
     authorized({ request, auth }) {
       const { pathname } = request.nextUrl;
-      if (pathname === "/middleware-example") return !!auth;
+      if (pathname === "./middleware.ts") return !!auth;
       return true;
     },
     jwt({ token, user, profile }) {
-      if (user) token.user = user;
-      if (profile) token.profile = profile;
+      if (user && profile) {
+        console.log("jwt", user, profile);
+        return { ...token, user, profile };
+      }
+      console.log("jwt after sign in", token);
       return token;
     },
-    session({ session, token, user }) {
-      if (session.user) session.profile = token.profile;
-      return session;
+    session({ session, token }) {
+      console.log("session", session, token);
+      return { ...session, user: { ...session.user, ...token } };
     },
   },
 } satisfies NextAuthConfig;
