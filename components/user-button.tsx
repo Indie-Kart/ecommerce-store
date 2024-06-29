@@ -18,7 +18,7 @@ export default async function UserButton() {
       <span className="hidden text-sm sm:inline-flex">{session.user.name}</span>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className="relative w-8 h-8 rounded-full">
+          <Button className="relative w-8 h-8 rounded-full">
             <Avatar className="w-8 h-8">
               <AvatarImage
                 src={
