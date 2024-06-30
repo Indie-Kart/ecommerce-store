@@ -1,62 +1,59 @@
-
-import Container from '@/components/ui/container';
-import Billboard from '@/components/ui/billboard';
-import ProductCard from '@/components/ui/product-card';
-import NoResults from '@/components/ui/no-results';
+import Container from "@/components/ui/container";
+import Billboard from "@/components/ui/billboard";
+import ProductCard from "@/components/ui/product-card";
+import NoResults from "@/components/ui/no-results";
 
 import getProducts from "@/actions/get-products";
-import getCategory from '@/actions/get-category';
-import getSizes from '@/actions/get-sizes';
-import getColors from '@/actions/get-colors';
+import getCategory from "@/actions/get-category";
+import getSizes from "@/actions/get-sizes";
+import getColors from "@/actions/get-colors";
 
-import Filter from './components/filter';
-import MobileFilters from './components/mobile-filters';
+import Filter from "./components/filter";
+import MobileFilters from "./components/mobile-filters";
+import PriceFilter from "@/actions/PriceFilter";
 
-export const revalidate = 0;
+export const revalidate = 60;
 
 interface CategoryPageProps {
   params: {
     categoryId: string;
-  },
+  };
   searchParams: {
     colorId: string;
     sizeId: string;
-  }
+
+    minPrice: string;
+    maxPrice: string;
+  };
 }
 
-const CategoryPage: React.FC<CategoryPageProps> = async ({ 
-  params, 
-  searchParams
+const CategoryPage: React.FC<CategoryPageProps> = async ({
+  params,
+  searchParams,
 }) => {
-  const products = await getProducts({ 
+  console.log(params, searchParams);
+  const products = await getProducts({
     categoryId: params.categoryId,
     colorId: searchParams.colorId,
     sizeId: searchParams.sizeId,
+    minPrice: searchParams.minPrice,
+    maxPrice: searchParams.maxPrice,
   });
   const sizes = await getSizes();
   const colors = await getColors();
   const category = await getCategory(params.categoryId);
 
   return (
-    <div className="bg-white">
+    <div className="bg-white pt-10">
       <Container>
-        <Billboard 
-          data={category.billboard}
-        />
+        <Billboard data={category.billboard} />
         <div className="px-4 sm:px-6 lg:px-8 pb-24">
           <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
             <MobileFilters sizes={sizes} colors={colors} />
             <div className="hidden lg:block">
-              <Filter
-                valueKey="sizeId" 
-                name="Sizes" 
-                data={sizes}
-              />
-              <Filter 
-                valueKey="colorId" 
-                name="Colors" 
-                data={colors}
-              />
+              <Filter valueKey="sizeId" name="Sizes" data={sizes} />
+              <Filter valueKey="colorId" name="Colors" data={colors} />
+              <PriceFilter />
             </div>
             <div className="mt-6 lg:col-span-4 lg:mt-0">
               {products.length === 0 && <NoResults />}
