@@ -14,33 +14,34 @@ const ChatbotModal: React.FC<ChatbotModalProps> = ({ onClose }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
 
+  // Function to handle sending a message
   const handleSendMessage = () => {
-    if (input.trim()) {
+    if (input.trim()) { // Check if the input is not empty
       const newUserMessage: Message = {
-        id: messages.length + 1,
-        text: input,
-        user: "user",
+        id: messages.length + 1, // Generate a new ID for the user message
+        text: input, // Store the user's input text
+        user: "user", // Mark the message as from the user
       };
-      setMessages([...messages, newUserMessage]);
-      setInput("");
+      setMessages([...messages, newUserMessage]); // Add the new user message to the messages array
+      setInput(""); // Clear the input field
 
       // Simulate bot response
       const botResponse: Message = {
-        id: messages.length + 2,
-        text: getBotResponse(input),
-        user: "bot",
+        id: messages.length + 2, // Generate a new ID for the bot response
+        text: getBotResponse(input), // Get the bot's response based on the user's input
+        user: "bot", // Mark the message as from the bot
       };
-      setMessages((prevMessages) => [...prevMessages, botResponse]);
+      setMessages((prevMessages) => [...prevMessages, botResponse]); // Add the bot response to the messages array
     }
   };
 
   const getBotResponse = (input: string) => {
     if (input.toLowerCase().includes("hello")) {
-      return "Hello! How can I assist you today?";
+      return "Hello! How can I assist you today?"; 
     } else if (input.toLowerCase().includes("how are you")) {
-      return "I am just a bot, but I am here to help you!";
+      return "I am just a bot, but I am here to help you!"; 
     } else {
-      return "I am sorry, I didn't understand that. Can you please rephrase?";
+      return "I am sorry, I didn't understand that. Can you please rephrase?"; // Default response for unrecognized input
     }
   };
 

@@ -27,20 +27,23 @@ const Info: React.FC<InfoProps> = ({ data }) => {
     cart.removeItem(data.id);
   };
   const onShare = () => {
+      // Check if the Web Share API is supported by the browser
+
     if (navigator.share) {
       navigator
-        .share({
-          title: data.name,
-          text: `Check out this product: ${data.name}`,
-          url: window.location.href,
-        })
-        .then(() => console.log("Shared successfully"))
-        .catch((error) => console.error("Error sharing:", error));
-    } else {
-      console.log("Web Share API is not supported in this browser.");
-    }
-  };
-
+      .share({
+        title: data.name, // Title of the share message
+        text: `Check out this product: ${data.name}`, // Text of the share message
+        url: window.location.href, // URL of the current page
+      })
+      .then(() => console.log("Shared successfully")) // Log success message
+      .catch((error) => console.error("Error sharing:", error)); // Log any errors that occur
+  } else {
+    // Log a message if the Web Share API is not supported
+    console.log("Web Share API is not supported in this browser.");
+  }
+}
+//to add or remove the item from whishlist
   const toggleWishlist = () => {
     if (isInWishlist) {
       wishlist.removeItem(data.id);

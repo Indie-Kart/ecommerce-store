@@ -1,16 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { useRouter } from "next/navigation";
 
 const Login: React.FC = () => {
   const router = useRouter();
 
+  // Handle successful Google login
   const handleGoogleSuccess = (credentialResponse: any) => {
     console.log("Google login successful", credentialResponse);
   };
 
+  // Handle Google login error
   const handleGoogleError = () => {
     console.log("Google login failed");
   };
@@ -25,6 +27,7 @@ const Login: React.FC = () => {
 
           <div className="mt-6">
             <div className="w-full flex justify-center">
+              {/* Google login button */}
               <GoogleLogin
                 onSuccess={handleGoogleSuccess}
                 onError={handleGoogleError}

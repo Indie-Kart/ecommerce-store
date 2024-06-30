@@ -9,6 +9,7 @@ import useCart from "@/hooks/use-cart";
 
 const NavbarActions = () => {
   const [isMounted, setIsMounted] = useState(false);
+  // Set isMounted to true once component is mounted to ensure client-side rendering
 
   useEffect(() => {
     setIsMounted(true);
