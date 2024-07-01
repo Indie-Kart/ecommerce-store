@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { toast } from "react-hot-toast";
-import { X } from "lucide-react";
-
+import { X } from "lucide-react"; 
 import IconButton from "@/components/ui/icon-button";
 import Currency from "@/components/ui/currency";
 import useCart from "@/hooks/use-cart";
@@ -11,12 +10,11 @@ interface CartItemProps {
   data: Product;
 }
 
-const CartItem: React.FC<CartItemProps> = ({ data }) => {
+const CartItem: React.FC<CartItemProps> = ({ data,quantity ,handleAdd,handleDec}) => { 
   const cart = useCart();
-
   const onRemove = () => {
     cart.removeItem(data.id);
-  };
+  }; 
 
   return (
     <li className="flex py-6 border-b">
@@ -44,6 +42,16 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
             </p>
           </div>
           <Currency value={data.price} />
+          <div className="flex flex-col items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-4">
+            <button className="h-4 w-4 border border-gray-300 p-4 flex justify-center items-center rounded-full" onClick={()=>handleAdd(data)}><span>+</span></button>
+            <span>{quantity.find(ele=>ele.id===data.id)?quantity.find(ele=>ele.id===data.id).quantity:1}</span>
+            <button className="h-4 w-4 border border-gray-300 p-4 flex justify-center items-center rounded-full" onClick={()=>handleDec(data)}><span>-</span></button>
+          </div>
+          <div>
+            <p className="flex">prize : <Currency value={quantity.find(ele=>ele.id===data.id)?quantity.find(ele=>ele.id===data.id).price: data.price} /></p>
+          </div>
+          </div>
         </div>
       </div>
     </li>
