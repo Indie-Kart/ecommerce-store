@@ -1,6 +1,6 @@
 "use client"
 
-import { Billboard } from "@/types";
+import type { Billboard } from "@/types";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
