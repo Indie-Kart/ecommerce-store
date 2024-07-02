@@ -1,7 +1,7 @@
 "use client";
 
 import { Heart, ShoppingCart, Trash2 } from "lucide-react";
-
+import { useState } from "react";
 import Currency from "@/components/ui/currency";
 import { Button } from "@/components/ui/button";
 import { Product } from "@/types";
@@ -13,8 +13,10 @@ interface InfoProps {
   data: Product;
 }
 
-const Info: React.FC<InfoProps> = ({ data }) => {
+const Info: React.FC<InfoProps> = ({ data}) => {
+  const [checker,setChecker]=useState({share:false,copy:false})
   const cart = useCart();
+  const URL= window.location.href
   const wishlist = useWishlist();
 
   const onAddToCart = () => {
@@ -26,7 +28,8 @@ const Info: React.FC<InfoProps> = ({ data }) => {
   const onRemoveFromCart = () => {
     cart.removeItem(data.id);
   };
-  const onShare = () => {
+  const onShare = () => { 
+    setChecker(pre=>({...pre,share:!checker.share}))
     if (navigator.share) {
       navigator
         .share({
@@ -41,6 +44,28 @@ const Info: React.FC<InfoProps> = ({ data }) => {
     }
   };
 
+  function handleWhatsApp(){ 
+     
+    let whatsappShareURL = `https://wa.me/?text=${encodeURIComponent(URL)}`;
+    
+    // Open WhatsApp share link
+    window.open(whatsappShareURL, '_blank');
+  }
+
+  function handleFaceBook(){
+    let facebookShareURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(URL)}`;
+    
+    // Open Facebook share link
+    window.open(facebookShareURL, '_blank');
+  }
+
+  function handleInstagram(){
+    let instagramShareURL = `https://www.instagram.com/create/story/?url=${encodeURIComponent(URL)}`;
+    
+    // Open Instagram share link
+    window.open(instagramShareURL, '_blank');
+  }
+
   const toggleWishlist = () => {
     if (isInWishlist) {
       wishlist.removeItem(data.id);
@@ -49,6 +74,13 @@ const Info: React.FC<InfoProps> = ({ data }) => {
     }
   };
 
+function handleCopy(){
+  navigator.clipboard.writeText(URL)
+  setChecker(pre=>({...pre,copy:true}))
+  setTimeout(()=>{
+  setChecker(pre=>({...pre,copy:false}))
+  },2000)
+}
   return (
     <div>
       <h1 className="text-3xl font-bold text-gray-900">{data.name}</h1>
@@ -104,6 +136,22 @@ const Info: React.FC<InfoProps> = ({ data }) => {
             <Heart className="bg-none text-white" />
           )}
         </Button>
+        { checker.share?
+        <div className=" fixed top-0 bottom-0 left-0 right-0  h-[16rem] ls:w-[50%] sm:w-[75%] shadow-lg p-6 w-[85%] bg-white m-auto">
+          <img src="https://cdn-icons-png.flaticon.com/128/2732/2732657.png" className="absolute top-[1%] right-[3%] h-6 w-6" alt="close" onClick={()=>setChecker(pre=>({...pre,share:false}))} />
+          <div className="flex justify-center items-center gap-8">
+          <input readOnly value={URL} className="border border-1 p-2 w-[60%]" />
+          <img src={checker.copy?"https://cdn-icons-png.flaticon.com/128/5291/5291043.png":"https://cdn-icons-png.flaticon.com/128/126/126498.png"} alt="copy" className={`h-6 w-6 ${checker.copy?"cursor-not-allowed":"cursor-pointer"}`}  onClick={handleCopy} />
+          </div>
+          <hr className="mt-4 border-black" />
+          <p className="text-center p-4">Share To</p>
+          <div className="flex justify-center items-center gap-4">
+              <img src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" alt="facebook" onClick={handleFaceBook} className="h-12 w-12 cursor-pointer" />
+              <img src="https://cdn-icons-png.flaticon.com/128/15713/15713420.png" alt="Instagram" onClick={handleInstagram}  className="h-12 w-12 cursor-pointer" />
+              <img src="https://cdn-icons-png.flaticon.com/128/15713/15713434.png" alt="Whats App" onClick={handleWhatsApp} className="h-12 w-12 cursor-pointer" />
+            </div>
+        </div>:<></>
+}
       </div>
     </div>
   );
