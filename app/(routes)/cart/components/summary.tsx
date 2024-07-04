@@ -9,10 +9,15 @@ import Currency from "@/components/ui/currency";
 import useCart from "@/hooks/use-cart";
 import { toast } from "react-hot-toast";
 
-const Summary = ({quantity}) => { 
+interface SummaryProps {
+  quantity: { id: string; price: number }[]; // Adjust type according to your data structure
+}
+
+const Summary: React.FC<SummaryProps> = ({ quantity }) => {
   const searchParams = useSearchParams();
   const items = useCart((state) => state.items);
-  const removeAll = useCart((state) => state.removeAll); 
+  const removeAll = useCart((state) => state.removeAll);
+
   useEffect(() => {
     if (searchParams.get("success")) {
       toast.success("Payment completed.");
@@ -23,22 +28,29 @@ const Summary = ({quantity}) => {
       toast.error("Something went wrong.");
     }
   }, [searchParams, removeAll]);
-  const totalquantityPrice=quantity.reduce((total,item)=>{
-     return total+Number(item.price)
-  },0)
+
+  const totalQuantityPrice = quantity.reduce((total, item) => {
+    return total + Number(item.price);
+  }, 0);
+
   const totalPrice = items.reduce((total, item) => {
     return total + Number(item.price);
   }, 0);
 
   const onCheckout = async () => {
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
-      {
-        productIds: items.map((item) => item.id),
-      }
-    );
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
+        {
+          productIds: items.map((item) => item.id),
+        }
+      );
 
-    window.location = response.data.url;
+      window.location = response.data.url; // Redirect to the checkout URL
+    } catch (error) {
+      console.error("Checkout failed:", error);
+      toast.error("Checkout failed. Please try again later.");
+    }
   };
 
   return (
@@ -47,7 +59,7 @@ const Summary = ({quantity}) => {
       <div className="mt-6 space-y-4">
         <div className="flex items-center justify-between border-t border-gray-200 pt-4">
           <div className="text-base font-medium text-gray-900">Order total</div>
-          <Currency value={totalquantityPrice} />
+          <Currency value={totalQuantityPrice} />
         </div>
       </div>
       <Button
@@ -62,3 +74,4 @@ const Summary = ({quantity}) => {
 };
 
 export default Summary;
+

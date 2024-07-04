@@ -1,20 +1,28 @@
-import Image from "next/image";
-import { toast } from "react-hot-toast";
-import { X } from "lucide-react"; 
+import React from "react";
+import { Product } from "@/types";
+import {QuantityDetail} from "./cart-item-info"; // Adjusted import
 import IconButton from "@/components/ui/icon-button";
 import Currency from "@/components/ui/currency";
 import useCart from "@/hooks/use-cart";
-import { Product } from "@/types";
-
+import { X } from "lucide-react";
+import Image from "next/image";
 interface CartItemProps {
   data: Product;
+  quantity: QuantityDetail[]; // This should match the interface definition
+  handleAdd: (data: Product) => void;
+  handleDec: (data: Product) => void;
 }
-
-const CartItem: React.FC<CartItemProps> = ({ data,quantity ,handleAdd,handleDec}) => { 
+const CartItem: React.FC<CartItemProps> = ({
+  data,
+  quantity,
+  handleAdd,
+  handleDec,
+}) => {
   const cart = useCart();
+
   const onRemove = () => {
     cart.removeItem(data.id);
-  }; 
+  };
 
   return (
     <li className="flex py-6 border-b">
@@ -43,14 +51,37 @@ const CartItem: React.FC<CartItemProps> = ({ data,quantity ,handleAdd,handleDec}
           </div>
           <Currency value={data.price} />
           <div className="flex flex-col items-center justify-center gap-4">
-          <div className="flex items-center justify-center gap-4">
-            <button className="h-4 w-4 border border-gray-300 p-4 flex justify-center items-center rounded-full" onClick={()=>handleAdd(data)}><span>+</span></button>
-            <span>{quantity.find(ele=>ele.id===data.id)?quantity.find(ele=>ele.id===data.id).quantity:1}</span>
-            <button className="h-4 w-4 border border-gray-300 p-4 flex justify-center items-center rounded-full" onClick={()=>handleDec(data)}><span>-</span></button>
-          </div>
-          <div>
-            <p className="flex">prize : <Currency value={quantity.find(ele=>ele.id===data.id)?quantity.find(ele=>ele.id===data.id).price: data.price} /></p>
-          </div>
+            {quantity
+              .filter((item) => item.id === data.id)
+              .map((item) => (
+                <div className="flex items-center justify-center gap-4" key={item.id}>
+                  <button
+                    className="h-4 w-4 border border-gray-300 p-4 flex justify-center items-center rounded-full"
+                    onClick={() => handleAdd(data)}
+                  >
+                    <span>+</span>
+                  </button>
+                  <span>{item.quantity}</span>
+                  <button
+                    className="h-4 w-4 border border-gray-300 p-4 flex justify-center items-center rounded-full"
+                    onClick={() => handleDec(data)}
+                  >
+                    <span>-</span>
+                  </button>
+                </div>
+              ))}
+            <div>
+              <p className="flex">
+                Price :{" "}
+                <Currency
+                  value={
+                    Number(
+                      quantity.find((item) => item.id === data.id)?.quantity ?? 0
+                    ) * Number(data.price)
+                  }
+                />
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -59,3 +90,7 @@ const CartItem: React.FC<CartItemProps> = ({ data,quantity ,handleAdd,handleDec}
 };
 
 export default CartItem;
+
+
+
+
