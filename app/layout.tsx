@@ -9,6 +9,7 @@ import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 import AnimatedCursor from 'react-animated-cursor'
 import './globals.css'
+import BackToTop from '@/components/ui/BacktoTop'
 
 const font = Urbanist({ subsets: ['latin'] })
 
@@ -57,6 +58,7 @@ export default function RootLayout({
 
         {children}
         <SpeedInsights /> 
+        <BackToTop />
         <Footer />
       </body>
     </html>

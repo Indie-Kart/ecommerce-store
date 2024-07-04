@@ -3,6 +3,7 @@ import { Tab } from "@headlessui/react";
 
 import { cn } from "@/lib/utils";
 import { Image } from "@/types";
+import BackToTop from "../ui/BacktoTop";
 
 interface GalleryTabProps {
   image: Image;
@@ -32,6 +33,7 @@ const GalleryTab: React.FC<GalleryTabProps> = ({
               selected ? 'ring-black' : 'ring-transparent',
             )}
           />
+          <BackToTop />
         </div>
       )}
     </Tab>
