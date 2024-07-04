@@ -1,12 +1,28 @@
-interface CartItemInfoProps {
-  product: Record<string, any>;
+import React from "react";
+
+interface Product {
+  name: string;
+  color: string;
+  size: string;
+  price: string;
+  // Add more properties as needed
 }
+
+interface CartItemInfoProps {
+  product: Product;
+}
+export interface QuantityDetail {
+  id: string;
+  quantity: number;
+  // Add more properties as needed
+}
+
 
 const CartItemInfo: React.FC<CartItemInfoProps> = ({ product }) => {
   return (
     <div>
       <div className="flex justify-between">
-        <p className=" text-sm font-semibold text-black">{product.name}</p>
+        <p className="text-sm font-semibold text-black">{product.name}</p>
       </div>
 
       <div className="mt-1 flex text-sm">
@@ -21,3 +37,4 @@ const CartItemInfo: React.FC<CartItemInfoProps> = ({ product }) => {
 };
 
 export default CartItemInfo;
+
