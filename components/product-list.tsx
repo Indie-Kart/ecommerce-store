@@ -1,13 +1,13 @@
 "use client";
-import React from 'react';
-import {Tilt} from 'react-tilt';
+import React from "react";
+import { Tilt } from "react-tilt";
 import ProductCard from "@/components/ui/product-card";
 import { Product } from "@/types";
 import NoResults from "@/components/ui/no-results";
 
 interface ProductListProps {
   title: string;
-  items: Product[]
+  items: Product[];
 }
 
 const ProductList: React.FC<ProductListProps> = ({ title, items }) => {
@@ -19,11 +19,12 @@ const ProductList: React.FC<ProductListProps> = ({ title, items }) => {
         {items.map((item) => (
           <Tilt key={item.id} className="tilt">
             <ProductCard data={item} />
+            {/* {console.log(item)} */}
           </Tilt>
         ))}
       </div>
     </div>
   );
-}
+};
 
 export default ProductList;
