@@ -4,6 +4,7 @@ import Container from "@/components/ui/container";
 import getProducts from "@/actions/get-products";
 import ProductList from "@/components/product-list";
 import Billboard from "@/components/ui/billboard";
+import BackToTop from "@/components/ui/BacktoTop";
 
 // Sample reviews (you can customize these)
 const sampleReviews = [
@@ -92,6 +93,7 @@ const HomePage: React.FC = async () => {
           <h2 className="text-2xl font-semibold">Customer Reviews</h2>
           <CustomerReviews reviews={sampleReviews} />
         </div>
+        <BackToTop />
       </div>
     </Container>
   );

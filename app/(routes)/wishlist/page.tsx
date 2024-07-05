@@ -6,6 +6,7 @@ import Container from "@/components/ui/container";
 import useWishlist from "@/hooks/use-wishlist";
 
 import WishlistItem from "./components/wishlist-item";
+import BackToTop from "@/components/ui/BacktoTop";
 
 const CartPage = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -35,6 +36,7 @@ const CartPage = () => {
           </div>
         </div>
       </Container>
+      <BackToTop />
     </div>
   );
 };
