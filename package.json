@@ -57,6 +57,7 @@
     "@types/next": "^9.0.0",
     "@types/node": "^20.14.9",
     "@types/react": "^18.3.3",
+    "@types/react-scroll": "^1.8.10",
     "typescript": "^5.5.2"
   },
   "description": "![Copy of Copy of Fullstack Twitter Clone (1)](https://github.com/AntonioErdeljac/next13-ecommerce-admin/assets/23248726/088760cb-837d-44b7-a959-63089385d0a0)",
