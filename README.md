@@ -56,13 +56,13 @@ We understand the diversity of our user base, and to cater to a global audience,
 
 ## Checkout Test Card Details 💳
 
--**E-mail:** Any email "random.gmail.com"
--**Phone No:** Any random 10-digit phone no. "9999999999"
--**Card No:** 4242 4242 4242 4242
--**Expiry:** 05/55
--**CVV:** 555
--**Name on Card:** Any Name
--**Billing Address:** Any random address
+- **E-mail:** Any email "random.gmail.com"
+- **Phone No:** Any random 10-digit phone no. "9999999999"
+- **Card No:** 4242 4242 4242 4242
+- **Expiry:** 05/55
+- **CVV:** 555
+- **Name on Card:** Any Name
+- **Billing Address:** Any random address
 
 ## Contributing to IdieKart
 
