@@ -54,7 +54,17 @@ We understand the diversity of our user base, and to cater to a global audience,
 - ReactJs
 - TypeScript
 
-## Contributing to Lupo Skill
+## Checkout Test Card Details 💳
+
+-**E-mail:** Any email "random.gmail.com"
+-**Phone No:** Any random 10-digit phone no. "9999999999"
+-**Card No:** 4242 4242 4242 4242
+-**Expiry:** 05/55
+-**CVV:** 555
+-**Name on Card:** Any Name
+-**Billing Address:** Any random address
+
+## Contributing to IdieKart
 
 Visit [Contributing.md](https://github.com/Indie-Kart/ecommerce-store/blob/main/Contributing.md) for contribution guide.
 
@@ -79,7 +89,7 @@ When reporting a new issue, please provide the following details:
 If you're submitting a pull request, please:
 - Strictly follow the [PULL_REQUEST_TEMPLATE](./PULL_REQUEST_TEMPLATE.md)
 - Describe the changes made and the reason for the changes.
-- Reference any related issues by using keywords such as "Fixes #<issue_number>" in your pull request description.
+- Reference related issues using keywords such as "Fixes #<issue_number>" in your pull request description.
 
 ## Code of Conduct
 
