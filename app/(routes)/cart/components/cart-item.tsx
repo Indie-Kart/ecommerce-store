@@ -11,17 +11,20 @@ interface CartItemProps {
   quantity: QuantityDetail[]; // This should match the interface definition
   handleAdd: (data: Product) => void;
   handleDec: (data: Product) => void;
+  remove: (data: Product) => void;
 }
 const CartItem: React.FC<CartItemProps> = ({
   data,
   quantity,
   handleAdd,
   handleDec,
+  remove,
 }) => {
   const cart = useCart();
 
   const onRemove = () => {
     cart.removeItem(data.id);
+    remove(data)
   };
 
   return (
