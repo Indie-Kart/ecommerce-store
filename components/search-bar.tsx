@@ -162,12 +162,6 @@ function SearchBar() {
           onChange={handleSearchChange}
           required
         />
-        <button
-          type="submit"
-          className="text-white absolute right-2.5 bottom-2.5 bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2"
-        >
-          Search
-        </button>
       </div>
       {isMounted && searchResults.length > 0 && (
         <div className="absolute z-10 bg-white border border-gray-300 rounded-lg w-full mt-1 max-h-60 overflow-y-auto shadow-lg">
