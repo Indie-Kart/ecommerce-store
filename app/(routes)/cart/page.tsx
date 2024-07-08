@@ -79,6 +79,11 @@ const CartPage = () => {
     setQuantity(updatedQuantity);
   };
 
+  const handleRemoves=(data: Product)=>{
+    let filtered=quantity.filter((item) => item.id !== data.id)
+    setQuantity(filtered)
+  } 
+
   if (!isMounted) {
     return null;
   }
@@ -94,10 +99,11 @@ const CartPage = () => {
                 {cartItems.map((item) => (
                   <CartItem
                     key={item.id}
-                    data={item}
+                    data={item} 
                     quantity={quantity}
                     handleAdd={handleAddQuantity}
-                    handleDec={handleDecQuantity}
+                    handleDec={handleDecQuantity} 
+                    remove={handleRemoves}
                   />
                 ))}
               </ul>
