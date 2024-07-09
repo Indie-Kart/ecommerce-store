@@ -11,9 +11,9 @@ const CursorTrail: React.FC = () => {
         const circles: ExtendedHTMLElement[] = [];
         const numCircles = 25;
 
-        // Create initial circles with zero position and size
+      
         for (let i = 0; i < numCircles; i++) {
-            circles.push({ x: 0, y: 0, size: 25 }); // Initial size can be adjusted
+            circles.push({ x: 0, y: 0, size: 25 }); 
         }
 
         let mouseX = 0;
@@ -31,19 +31,19 @@ const CursorTrail: React.FC = () => {
                 const targetX = index === 0 ? mouseX : circles[index - 1].x;
                 const targetY = index === 0 ? mouseY : circles[index - 1].y;
 
-                // Increase the damping factor for faster movement
+                // for faster movement
                 circle.x += (targetX - circle.x) * 0.6;
                 circle.y += (targetY - circle.y) * 0.6;
 
-                // Decrease size gradually based on index
-                circle.size = 25 - (index * 0.8); // Adjust the rate of size decrease
+                
+                circle.size = 25 - (index * 0.8); //  the rate of size decrease
 
                 const circleElement = document.querySelector(`#circle-${index}`) as ExtendedHTMLElement;
                 if (circleElement) {
                     circleElement.style.left = `${circle.x}px`;
                     circleElement.style.top = `${circle.y}px`;
-                    circleElement.style.width = `${circle.size}px`; // Adjust width for circle effect
-                    circleElement.style.height = `${circle.size}px`; // Adjust height for circle effect
+                    circleElement.style.width = `${circle.size}px`; // width for circle effect
+                    circleElement.style.height = `${circle.size}px`; // height for circle effect
                 }
             });
 
@@ -72,7 +72,7 @@ const CursorTrail: React.FC = () => {
                     key={index}
                     id={`circle-${index}`}
                     className="circle"
-                    style={{ width: '25px', height: '25px' }} // Initial size can be adjusted here too
+                    style={{ width: '25px', height: '25px' }} // Initial size 
                 ></div>
             ))}
         </div>
