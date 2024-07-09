@@ -27,7 +27,7 @@ const BackToTop: React.FC = () => {
     animateScroll.scrollToTop({
       top: 0,
       behavior: "smooth",
-      duration: 500
+      duration: 200
     });
   };
 
