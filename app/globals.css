@@ -51,3 +51,12 @@ body,
     @apply bg-background text-foreground;
   }
 }
+
+.circle {
+  @apply absolute w-7 h-7 rounded-full pointer-events-none transition-transform duration-100;
+  background: radial-gradient(circle, rgba(0, 62, 208, 0.5), rgba(219, 251, 255, 0.5));
+}
+
+.circle-container {
+  @apply fixed top-0 left-0 w-full h-full pointer-events-none z-[9999];
+}
