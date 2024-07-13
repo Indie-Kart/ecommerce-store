@@ -22,24 +22,6 @@ IndieKart, an innovative e-shopping platform designed to elevate your online sho
 
 </table>
 
-## Table of Contents
-
-- [Key Features](#key-features)
-  - [Extensive Product Details](#extensive-product-details)
-  - [AI-Powered Chatbox](#ai-powered-chatbox)
-  - [Technologically Advanced](#technologically-advanced)
-  - [Language Support](#language-support)
-- [Technologies Used](#technologies-used)
-- [Tech Stack](#tech-stack)
-- [Checkout Test Card Details](#checkout-test-card-details)
-- [Contributing to IndieKart](#contributing-to-indiekart)
-- [Using Issue Templates](#using-issue-templates)
-- [Reporting Issues](#reporting-issues)
-- [Making Pull Requests](#making-pull-requests)
-- [Code of Conduct](#code-of-conduct)
-- [Getting Started](#getting-started)
-- [Contributors](#contributors)
-
 <div align="center">
   <a href="https://github.com/indie-kart/ecommerce-store" >
     <img src="https://img.shields.io/github/commit-activity/w/indie-kart/ecommerce-store" alt="GitHub commit activity">
@@ -66,6 +48,24 @@ IndieKart, an innovative e-shopping platform designed to elevate your online sho
     <img src="https://img.shields.io/github/last-commit/indie-kart/ecommerce-store?color=crimson" alt="GitHub last commit">
   </a>
 </div>
+
+## Table of Contents
+
+- [Key Features](#key-features)
+  - [Extensive Product Details](#extensive-product-details)
+  - [AI-Powered Chatbox](#ai-powered-chatbox)
+  - [Technologically Advanced](#technologically-advanced)
+  - [Language Support](#language-support)
+- [Technologies Used](#technologies-used)
+- [Tech Stack](#tech-stack)
+- [Checkout Test Card Details](#checkout-test-card-details)
+- [Contributing to IndieKart](#contributing-to-indiekart)
+- [Using Issue Templates](#using-issue-templates)
+- [Reporting Issues](#reporting-issues)
+- [Making Pull Requests](#making-pull-requests)
+- [Code of Conduct](#code-of-conduct)
+- [Getting Started](#getting-started)
+- [Contributors](#contributors)
 
 
 ## Key Features:
