@@ -30,6 +30,8 @@
 # IndieKart
 IndieKart, an innovative e-shopping platform designed to elevate your online shopping experience to unparalleled heights. Our application is meticulously crafted to provide users with a comprehensive selection of products, each accompanied by detailed information to ensure absolute satisfaction.
 
+#[**Live Project Link🚀**](https://indiekart.vercel.app/):
+
 ## Key Features:
 
 ### Extensive Product Details
