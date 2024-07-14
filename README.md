@@ -1,4 +1,26 @@
-![gssoc](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*fqJaH_oISOR96gLgpJBwWQ.png)
+<center>
+<img  src="https://readme-typing-svg.herokuapp.com?color=45ffaa&size=40&width=900&height=80&lines=Welcome-to-IndieKart"/>
+</center>
+
+IndieKart, an innovative e-shopping platform designed to elevate your online shopping experience to unparalleled heights. Our application is meticulously crafted to provide users with a comprehensive selection of products, each accompanied by detailed information to ensure absolute satisfaction.
+
+
+## Featured In
+
+<table>
+
+   <tr>
+      <th>Event Logo</th>
+      <th>Event Name</th>
+      <th>Event Description</th>
+   </tr>
+   <tr>
+      <td><img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*fqJaH_oISOR96gLgpJBwWQ.png" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
+      <td>GirlScript Summer of Code 2024</td>
+      <td>GirlScript Summer of Code is a three-month-long Open Source Program conducted every summer by GirlScript Foundation. It is an initiative to bring more beginners to Open-Source Software Development.</td>
+   </tr>
+
+</table>
 
 <div align="center">
   <a href="https://github.com/indie-kart/ecommerce-store" >
@@ -27,8 +49,24 @@
   </a>
 </div>
 
-# IndieKart
-IndieKart, an innovative e-shopping platform designed to elevate your online shopping experience to unparalleled heights. Our application is meticulously crafted to provide users with a comprehensive selection of products, each accompanied by detailed information to ensure absolute satisfaction.
+## Table of Contents
+
+- [Key Features](#key-features)
+  - [Extensive Product Details](#extensive-product-details)
+  - [AI-Powered Chatbox](#ai-powered-chatbox)
+  - [Technologically Advanced](#technologically-advanced)
+  - [Language Support](#language-support)
+- [Technologies Used](#technologies-used)
+- [Tech Stack](#tech-stack)
+- [Checkout Test Card Details](#checkout-test-card-details)
+- [Contributing to IndieKart](#contributing-to-indiekart)
+- [Using Issue Templates](#using-issue-templates)
+- [Reporting Issues](#reporting-issues)
+- [Making Pull Requests](#making-pull-requests)
+- [Code of Conduct](#code-of-conduct)
+- [Getting Started](#getting-started)
+- [Contributors](#contributors)
+
 
 #[**Live Project Link🚀**](https://indiekart.vercel.app/):
 
