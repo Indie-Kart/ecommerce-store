@@ -22,6 +22,12 @@ IndieKart, an innovative e-shopping platform designed to elevate your online sho
       <td>GirlScript Summer of Code is a three-month-long Open Source Program conducted every summer by GirlScript Foundation. It is an initiative to bring more beginners to Open-Source Software Development.</td>
    </tr>
 
+   <tr>
+      <td><img src="https://vinyasa-summer-of-code-vsoc.devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F39347ec8c7be4f5ba28169197ce5dbfc%2Fassets%2Ffavicon%2F830.png&w=1440&q=75" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
+      <td>Vinyasa Summer of Code 2024</td>
+      <td>VSoC is a summer program for aspiring software developers, engineers, and tech enthusiasts to collaborate on open-source projects, gaining practical coding experience, mentorship, and networking.</td>
+   </tr>
+
 </table>
 
 <div align="center">
