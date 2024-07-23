@@ -2,6 +2,8 @@
 <img  src="https://readme-typing-svg.herokuapp.com?color=45ffaa&size=40&width=900&height=80&lines=Welcome-to-IndieKart"/>
 </center>
 
+![Indiekart_vsoc_banner](https://github.com/user-attachments/assets/45723654-f960-409f-95c0-99c34e55a869)
+
 IndieKart, an innovative e-shopping platform designed to elevate your online shopping experience to unparalleled heights. Our application is meticulously crafted to provide users with a comprehensive selection of products, each accompanied by detailed information to ensure absolute satisfaction.
 
 
