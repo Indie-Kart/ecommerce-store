@@ -36,6 +36,12 @@ const MainNav: React.FC<MainNavProps> = ({ data }) => {
     active: pathname === `/category/${route.id}`,
   }));
 
+  const handleLinkClick = () => {
+    if (isMobile) {
+      setIsOpen(false);
+    }
+  };
+
   return (
     <>
       {" "}
@@ -67,16 +73,18 @@ const MainNav: React.FC<MainNavProps> = ({ data }) => {
       {isOpen && (
         <div className="fixed top-16 h-[160px]  bg-white flex flex-col items-center gap-[10px] w-[100%] z-[99] text-black">
           {routes.map((route) => (
-            <Link
-              key={route.href}
-              href={route.href}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-black",
-                route.active ? "text-black" : "text-neutral-500"
-              )}
-            >
-              {route.label}
-            </Link>
+            <a onClick={handleLinkClick}>
+              <Link
+                key={route.href}
+                href={route.href}
+                className={cn(
+                  "text-sm font-medium transition-colors hover:text-black",
+                  route.active ? "text-black" : "text-neutral-500"
+                )}
+              >
+                {route.label}
+              </Link>
+            </a>
           ))}
         </div>
       )}
