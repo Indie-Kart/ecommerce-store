@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import useCart from "@/hooks/use-cart";
+import ThemeToggle from "@/components/theme-toggle";
 
 const NavbarActions = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -23,6 +24,7 @@ const NavbarActions = () => {
 
   return (
     <div className="ml-auto flex items-center md:gap-x-4 gap-x-1">
+      <ThemeToggle />
       <Button
         onClick={() => router.push("/cart")}
         className="flex items-center rounded-full bg-black md:px-4 px-1 py-1 md:py-2"

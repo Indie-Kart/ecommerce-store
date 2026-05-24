@@ -28,7 +28,7 @@ export default function RootLayout({
     
       
     <html lang="en">
-      <body className={font.className}>
+      <body className={`${font.className} bg-white dark:bg-gray-950 text-black dark:text-gray-100 transition-colors duration-300`}>
         <ToastProvider />
         <CursorTrail />
         <ModalProvider />
