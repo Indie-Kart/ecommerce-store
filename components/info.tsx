@@ -1,7 +1,7 @@
 "use client";
 
 import { Heart, ShoppingCart, Trash2 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Currency from "@/components/ui/currency";
 import { Button } from "@/components/ui/button";
 import { Product } from "@/types";
@@ -15,9 +15,13 @@ interface InfoProps {
 
 const Info: React.FC<InfoProps> = ({ data}) => {
   const [checker,setChecker]=useState({share:false,copy:false})
+  const [URL, setURL] = useState("");
   const cart = useCart();
-  const URL= window.location.href
   const wishlist = useWishlist();
+
+  useEffect(() => {
+    setURL(window.location.href);
+  }, []);
 
   const onAddToCart = () => {
     cart.addItem(data);
@@ -29,7 +33,7 @@ const Info: React.FC<InfoProps> = ({ data}) => {
     cart.removeItem(data.id);
   };
   const onShare = () => { 
-    setChecker(pre=>({...pre,share:!checker.share}))
+    setChecker(pre=>({...pre,share:!pre.share}))
     if (navigator.share) {
       navigator
         .share({
@@ -37,10 +41,7 @@ const Info: React.FC<InfoProps> = ({ data}) => {
           text: `Check out this product: ${data.name}`,
           url: window.location.href,
         })
-        .then(() => console.log("Shared successfully"))
         .catch((error) => console.error("Error sharing:", error));
-    } else {
-      console.log("Web Share API is not supported in this browser.");
     }
   };
 
